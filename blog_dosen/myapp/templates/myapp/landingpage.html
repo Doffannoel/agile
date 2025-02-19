@@ -1,4 +1,9 @@
+{% extends "base.html" %}
 {% load static %}
+
+{% block title %}Home - Sesaria Kikitamara{% endblock %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,157 +16,246 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #1A3B7D;
+            padding: 20px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .navbar .logo {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 6px;
+        }
+
+        .nav-links a.active::after,
+        .nav-links a:hover::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -3px;
+            width: 80%;
+            height: 2px;
+            background-color: white;
+        }
+
+        /* Header */
+        .header-container {
+            background-color: #1A3B7D;
+            padding: 50px 10%;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-title {
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            letter-spacing: -0.5px;
+        }
+
+        /* Garis putih atas */
+        .header-container::before {
+            content: '';
+            width: 75%;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Garis putih bawah */
+        .header-container::after {
+            content: '';
+            width: 75%;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body class="bg-gray-50">
+
+
+    <!-- Header -->
+
+
+</body>
+</html>
+    
     <!-- About Section -->
-    <div class="bg-white rounded-3xl border-2 border-gray-200 p-8 max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-start mt-8">
-        <div class="md:w-2/3">
-            <h2 class="text-xl font-bold mb-2">About Me</h2>
-            <h1 class="text-3xl font-bold mb-4">I am <span class="text-blue-600">Sesaria Kikitamara</span></h1>
-            <p class="text-gray-700 mb-4">
-                Sesaria is a faculty member of Software Engineering Universitas Pasetiya Mulya. Her research interest are mainly focused on Blockchain, User Experience and Software Project Management. During her time in university, she was active to serve as teaching assistant.
-            </p>
-            <p class="text-gray-700">
-                This experience motivated her to be a lecturer. Furthermore, she also wants to be an inspiration to encourage more women in computer science by the fact that only few women choose this field as their career. Despite teaching, learning and research, she also loves to play piano and join volunteering activities.
-            </p>
-        </div>
-        <div class="md:w-1/3 mt-6 md:mt-0 md:ml-6">
-            <img alt="Sesaria Kikitamara, a woman wearing a floral hijab and a black blazer, smiling with her arms crossed" class="rounded-lg shadow-lg" height="400" src="{% static 'images/SE_Sesaria.png' %}" width="300"/>
+    <div class="max-w-6xl mx-auto p-6">
+        <div class="bg-white rounded-lg p-8 flex flex-col md:flex-row items-center md:items-start shadow-md">
+            <div class="md:w-2/3">
+                <h2 class="text-xl font-bold mb-2">About Me</h2>
+                <h1 class="text-3xl font-bold mb-4">I am <span class="text-blue-600">Sesaria Kikitamara</span></h1>
+                <p class="text-gray-700 mb-4">
+                    Sesaria is a faculty member of Software Engineering Universitas Pasetiya Mulya. Her research interests are mainly focused on Blockchain, User Experience, and Software Project Management. During her time in university, she was active to serve as a teaching assistant.
+                </p>
+                <p class="text-gray-700">
+                    This experience motivated her to be a lecturer. Furthermore, she also wants to be an inspiration to encourage more women in computer science by the fact that only a few women choose this field as their career. Despite teaching, learning, and research, she also loves to play piano and join volunteering activities.
+                </p>
+            </div>
+            <div class="md:w-1/3 mt-6 md:mt-0 md:ml-6">
+                <img alt="Sesaria Kikitamara" class="rounded-lg shadow-lg" src="{% static 'images/SE_Sesaria.png' %}" width="300"/>
+            </div>
         </div>
     </div>
-
-
+    
     <!-- Experience Section -->
-    <div class="max-w-4xl mx-auto p-6 mt-8">
+    <div class="max-w-6xl mx-auto p-6">
         <h1 class="text-2xl font-bold mb-4">Experience</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="h-64 w-full">
-              <img 
-                alt="Group of people sitting and holding awards" 
-                class="w-full h-full object-cover" 
-                src="{% static 'images/BuSesar3.png' %}"
-              />
-            </div>
-            <div class="p-4">
-              <p class="text-purple-600">Nov 2017 - Present · 7 yrs 3 mos</p>
-              <h2 class="text-xl font-bold">Faculty Lecturer Universitas Prasetiya Mulya</h2>
-              <p class="font-semibold">Full-time</p>
-              <p class="bg-purple-100 text-purple-600 rounded-full px-2 py-0.5 text-xs inline-block mt-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="{% static 'images/BuSesar3.png' %}" class="w-full h-64 object-cover"/>
+                <div class="p-4">
+                    <p class="text-purple-600">Nov 2017 - Present</p>
+                    <h2 class="text-xl font-bold">Faculty Lecturer Universitas Prasetiya Mulya</h2>
+                    <p class="font-semibold">Full-time</p>
+              <p class="bg-purple-100 text-purple-600 rounded-full px-2 py-0.5 text-s inline-block mt-2">
                 Department of Software Engineering, Teaching, Research
               </p>
+                </div>
             </div>
-          </div>
-      
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="h-64 w-full">
-              <img 
-                alt="Group of people standing and talking" 
-                class="w-full h-full object-cover"
-                src="{% static 'images/BuSesar4.png' %}"
-              />
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="{% static 'images/BuSesar4.png' %}" class="w-full h-64 object-cover"/>
+                <div class="p-4">
+                    <p class="text-purple-600">2015 - 2017</p>
+                    <h2 class="text-xl font-bold">Education: Radboud University</h2>
+                    <p class="font-semibold">Master's Degree, Information Science</p>
+                    <p class="bg-blue-100 text-blue-600 rounded-full px-2 py-0.5 text-xs inline-block mt-1">
+                      Specialisation in Information System and Software Engineering
+                    </p>
+                </div>
             </div>
-            <div class="p-4">
-              <p class="text-purple-600">2015 - 2017</p>
-              <h2 class="text-xl font-bold">Education: Radboud University</h2>
-              <p class="font-semibold">Master's Degree, Information Science</p>
-              <p class="bg-blue-100 text-blue-600 rounded-full px-2 py-0.5 text-xs inline-block mt-1">
-                Specialisation in Information System and Software Engineering
-              </p>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="{% static 'images/BuSesar5.png' %}" class="w-full h-64 object-cover"/>
+                <div class="p-4">
+                    <p class="text-purple-600">2008 - 2012</p>
+                    <h2 class="text-xl font-bold">Education: Diponegoro University</h2>
+                    <p class="font-semibold">Bachelor's Degree, Computer Science</p>
+                    <p class="bg-blue-100 text-blue-600 rounded-full px-2 py-0.5 text-xs inline-block mt-2">
+                      Student Association of Computer Science, Laboratory Assistant
+                    </p>
+                </div>
             </div>
-          </div>
-      
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="h-64 w-full">
-              <img 
-                alt="Person sitting on a bench in a park with fallen leaves" 
-                class="w-full h-full object-cover"
-                src="{% static 'images/BuSesar5.png' %}"
-              />
-            </div>
-            <div class="p-4">
-              <p class="text-purple-600">2008 - 2012</p>
-              <h2 class="text-xl font-bold">Education: Diponegoro University</h2>
-              <p class="font-semibold">Bachelor's Degree, Computer Science</p>
-              <p class="bg-blue-100 text-blue-600 rounded-full px-2 py-0.5 text-xs inline-block mt-2">
-                Student Association of Computer Science, Laboratory Assistant
-              </p>
-            </div>
-          </div>
-      
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="h-64 w-full">
-              <img 
-                alt="Group of people smiling and posing for a photo" 
-                class="w-full h-full object-cover"
-                src="{% static 'images/BuSesar6.jpg' %}"
-              />
-            </div>
-            <div class="p-4">
-              <p class="text-purple-600">Jun 2013 - Jun 2014 · 1 yr 1 mo</p>
-              <h2 class="text-xl font-bold">XL Apprentice Batch XI - Touchpoint Integration</h2>
-              <p class="font-semibold">PT. XL Axiata TBK</p>
-              <p class="bg-green-100 text-green-600 rounded-full px-2 py-0.5 text-xs inline-block mt-2">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="{% static 'images/BuSesar6.jpg' %}" class="w-full h-64 object-cover"/>
+                <div class="p-4">
+                    <p class="text-purple-600">Jun 2013 - Jun 2014</p>
+                    <h2 class="text-xl font-bold">XL Apprentice Batch XI - Touchpoint Integration</h2>
+                    <p class="font-semibold">PT. XL Axiata TBK</p>
+                    <p class="bg-green-100 text-green-600 rounded-full px-2 py-0.5 text-xs inline-block mt-2">
                 Service Oriented Architecture (SOA) Engineer
-              </p>
+                     </p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      
-
+    </div>
+    
     <!-- Recent Activity Section -->
-    <div class="max-w-4xl mx-auto p-6 mt-8 mb-8">
+    <div class="max-w-6xl mx-auto p-6">
         <h1 class="text-2xl font-semibold mb-6">Recent Activity</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="col-span-1">
-                <img alt="Group of students posing for a photo" class="rounded-lg w-full" height="400" src="{% static 'images/BuSesar2.jpg' %}"/>
-                <div class="mt-4">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="{% static 'images/BuSesar2.jpg' %}" class="w-full h-64 object-cover"/>
+                <div class="p-4">
                     <p class="text-sm text-blue-500">20 Jan 2025</p>
-                    <h2 class="text-xl font-semibold mt-1">Modern Farm</h2>
+                    <h2 class="text-xl font-semibold">Modern Farm</h2>
                     <p class="text-gray-600 mt-1">
-                        Melakukan penelitian "Modern Farm di Serang, Banten bersama para mahasiswa S1 Digital Business Technology.
-                    </p>
-                    <div class="mt-2">
-                        <span class="text-xs text-blue-500 bg-blue-100 px-2 py-1 rounded-full">Design</span>
-                        <span class="text-xs text-pink-500 bg-pink-100 px-2 py-1 rounded-full">Research</span>
-                        <span class="text-xs text-purple-500 bg-purple-100 px-2 py-1 rounded-full">Presentation</span>
-                    </div>
+                      Melakukan penelitian "Modern Farm di Serang, Banten bersama para mahasiswa S1 Digital Business Technology.
+                  </p>
+                  <div class="mt-2">
+                      <span class="text-xs text-blue-500 bg-blue-100 px-2 py-1 rounded-full">Design</span>
+                      <span class="text-xs text-pink-500 bg-pink-100 px-2 py-1 rounded-full">Research</span>
+                      <span class="text-xs text-purple-500 bg-purple-100 px-2 py-1 rounded-full">Presentation</span>
+                  </div>
                 </div>
             </div>
-            <div class="col-span-1 grid grid-cols-1 gap-6">
-                <div class="flex">
-                    <img alt="Two women holding a certificate" class="rounded-lg w-1/3" height="200" src="{% static 'images/BuSesar7.png' %}"/>
-                    <div class="ml-4">
+            <div class="flex flex-col space-y-4">
+                <div class="bg-white rounded-lg shadow-md flex overflow-hidden">
+                    <img src="{% static 'images/BuSesar7.png' %}" class="w-1/3 object-cover"/>
+                    <div class="p-4">
                         <p class="text-sm text-blue-500">20 Des 2025</p>
-                        <h2 class="text-xl font-semibold mt-1">Dikti Coventry University Bridging Programme</h2>
+                        <h2 class="text-xl font-semibold">Dikti Coventry University Bridging Programme</h2>
                         <p class="text-gray-600 mt-1">
-                            Linear helps streamline software projects, sprints, tasks, and bug tracking. Here's how to get...
-                        </p>
-                        <div class="mt-2">
-                            <span class="text-xs text-blue-500 bg-blue-100 px-2 py-1 rounded-full">Design</span>
-                            <span class="text-xs text-pink-500 bg-pink-100 px-2 py-1 rounded-full">Research</span>
-                        </div>
+                          Linear helps streamline software projects, sprints, tasks, and bug tracking. Here's how to get...
+                      </p>
+                      <div class="mt-2">
+                          <span class="text-xs text-blue-500 bg-blue-100 px-2 py-1 rounded-full">Design</span>
+                          <span class="text-xs text-pink-500 bg-pink-100 px-2 py-1 rounded-full">Research</span>
+                      </div>
                     </div>
                 </div>
-                <div class="flex">
-                    <img alt="A modern workspace with a computer and desk" class="rounded-lg w-1/3" height="200" src="{% static 'images/images_pc.jpeg' %}"/>
-                    <div class="ml-4">
+                <div class="bg-white rounded-lg shadow-md flex overflow-hidden">
+                    <img src="{% static 'images/images_pc.jpeg' %}" class="w-1/3 object-cover"/>
+                    <div class="p-4">
                         <p class="text-sm text-blue-500">Lana Steiner • 1 Jan 2023</p>
-                        <h2 class="text-xl font-semibold mt-1">Building your API Stack</h2>
+                        <h2 class="text-xl font-semibold">Building your API Stack</h2>
                         <p class="text-gray-600 mt-1">
-                            The rise of RESTful APIs has been met by a rise in tools for creating, testing, and manag...
-                        </p>
-                        <div class="mt-2">
-                            <span class="text-xs text-blue-500 bg-blue-100 px-2 py-1 rounded-full">Design</span>
-                            <span class="text-xs text-pink-500 bg-pink-100 px-2 py-1 rounded-full">Research</span>
-                        </div>
+                          The rise of RESTful APIs has been met by a rise in tools for creating, testing, and manag...
+                      </p>
+                      <div class="mt-2">
+                          <span class="text-xs text-blue-500 bg-blue-100 px-2 py-1 rounded-full">Design</span>
+                          <span class="text-xs text-pink-500 bg-pink-100 px-2 py-1 rounded-full">Research</span>
+                      </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+{% endblock %}
+
 </body>
 </html>

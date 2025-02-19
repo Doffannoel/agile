@@ -10,3 +10,6 @@ def detail_project(request):
 
 def landing_page(request):
     return render(request, 'myapp\landingpage.html')
+
+def pkm_(request):
+    return render(request, 'myapp\pkm.html')
