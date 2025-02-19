@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from .models import Publikasi
 
-# Create your views here.
+def publikasi_view(request):
+    publikasi_list = Publikasi.objects.all()
+    return render(request, 'myapp\publikasi.html', {'publikasi_list': publikasi_list})
+
+
