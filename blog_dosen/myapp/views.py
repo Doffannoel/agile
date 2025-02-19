@@ -7,3 +7,6 @@ def publikasi_view(request):
 
 def detail_project(request):
     return render(request, 'myapp\detailProject.html')
+
+def landing_page(request):
+    return render(request, 'myapp\landingpage.html')

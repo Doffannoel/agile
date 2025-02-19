@@ -8,3 +8,7 @@ urlpatterns = [
 urlpatterns = [
     path('research/', views.detail_project, name='detail_project'),
 ]
+
+urlpatterns = [
+    path('landingpage/', views.landing_page, name='landing_page'),
+]
