@@ -1,0 +1,312 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #002366;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-item:hover, .nav-item.active {
+    border-bottom: 2px solid white;
+}
+
+.container {
+    padding: 40px;
+    text-align: center;
+}
+
+.main-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.text-section {
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+    padding: 20px;
+}
+
+/* Related Articles Section */
+.related-articles {
+    max-width: 1200px; /* Lebarkan area terkait */
+    margin: auto;
+    padding: 40px 0;
+}
+
+.related-articles h2 {
+    font-size: 26px; /* Perbesar ukuran judul */
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Grid Container */
+.grid-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Tambahkan sedikit jarak */
+    flex-wrap: wrap;
+}
+
+/* Grid Item */
+.grid-item {
+    width: 340px; /* Perbesar kotak artikel */
+    text-align: center;
+    background: #f8f9fa;
+    padding: 20px; /* Tambahkan padding */
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Efek Hover */
+.grid-item:hover {
+    transform: scale(1.05);
+}
+
+/* Image Styling */
+.grid-item img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* Judul di dalam kotak */
+.grid-item h3 {
+    font-size: 20px; /* Perbesar judul */
+    font-weight: bold;
+    margin-top: 25px;
+    color: #1a202c;
+}
+
+/* Deskripsi */
+.grid-item p {
+    font-size: 16px; /* Perbesar teks */
+    color: #4a5568;
+    margin-top: 5px;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #1A3B7D;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 100px;
+    position: relative;
+    width: 100%;
+}
+
+/* Garis Putih Atas & Bawah */
+.footer-line {
+    border-top: 1px solid white;
+    max-width: 85%;
+    margin: 10px auto;
+}
+
+/* Container Footer */
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 20px;
+}
+
+/* Logo */
+.footer-logo img {
+    height: 50px;
+}
+
+/* Kontak */
+.footer-contact {
+    text-align: left;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+}
+
+.footer-contact i {
+    margin-right: 10px;
+}
+
+/* Social Media */
+.footer-social p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: lightgray;
+}
+
+/* Navigasi Footer */
+.footer-nav {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 14px;
+}
+
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.footer-nav a:hover {
+    opacity: 0.7;
+}
+
+/* Copyright */
+.footer-copyright {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+/* Area Sosial Media */
+.footer-social-bottom {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 10px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    
+    /* Pastikan footer menempel di bawah */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
+/* Supaya halaman tidak terpotong */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Pastikan wrapper utama memenuhi tinggi halaman */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Konten agar tetap fleksibel */
+.content {
+    flex: 1;
+}
+
+/* Footer tetap di bawah konten */
+.footer {
+    margin-top: auto;
+    width: 100%;
+}
+
+/* Hover effect tetap ada */
+.footer-social-bottom a {
+    color: #333;
+    text-decoration: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.footer-social-bottom a:hover {
+    opacity: 0.1;
+}
+
+.text-section {
+    max-width: 1000px; /* Batasi lebar teks */
+    margin: 0 auto; /* Pusatkan teks */
+    padding: 20px; /* Tambahkan padding */
+    text-align: justify; /* Rata kiri dan kanan */
+}
+
+.text-section h2 {
+    font-size: 28px; /* Perbesar judul */
+    font-weight: bold;
+    color: #1a202c;
+}
+
+.text-section p {
+    font-size: 18px; /* Perbesar teks paragraf */
+    line-height: 1.8; /* Tambahkan jarak antar baris */
+    color: #4a5568;
+}
+
+/* Styling untuk teks section */
+.text-section {
+    max-width: 900px; /* Pastikan tidak lebih dari gambar */
+    margin: 0 auto; /* Tetap terpusat */
+    padding: 0px 10px; /* Kurangi padding agar lebih rapat */
+    text-align: left; /* Pastikan tetap rata kiri */
+    margin-left: -10px; /* Geser lebih dekat ke kiri */
+}
+
+/* Styling untuk Judul */
+.text-section h2 {
+    font-size: 36px; /* Perbesar ukuran judul */
+    font-weight: bold;
+    color: #1a202c;
+}
+
+/* Styling untuk Paragraf */
+.text-section p {
+    font-size: 16px; /* Perkecil teks paragraf */
+    line-height: 1.7; /* Spasi antar baris */
+    color: #4a5568;
+    text-align: justify; /* Rata kanan-kiri */
+}
+
+/* Styling untuk List */
+.text-section ul {
+    list-style-type: disc;
+    padding-left: 30px;
+}
+
+text-section li {
+    font-size: 90px; /* Perbesar teks paragraf dan daftar */
+    line-height: 1.9; /* Tambahkan jarak antar baris */
+    color: #4a5568;
+}
