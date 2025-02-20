@@ -15,4 +15,4 @@ def pkm_(request):
     return render(request, 'myapp/pkm.html')
 
 def project_gallery(request):
-    return render(request, 'projectGallery.html')
+    return render(request, 'myapp/projectGallery.html')
