@@ -16,3 +16,9 @@ def pkm_(request):
 
 def project_gallery(request):
     return render(request, 'myapp/projectGallery.html')
+
+def teaching(request):
+    return render(request, 'myapp/teaching.html')
+
+def teachingdetail(request):
+    return render(request, 'myapp/teachingdetail.html')
