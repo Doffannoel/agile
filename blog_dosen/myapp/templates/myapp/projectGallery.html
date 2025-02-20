@@ -1,55 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Gallery</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            text-align: center;
-        }
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-        }
-        h1 {
-            font-size: 22px;
-        }
-        h2 {
-            font-size: 20px;
-            text-align: left;
-            padding-top: 30px;
-        }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .gallery img {
-            width: 320px;
-            height: 230px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Erasmus+ CBHE - Interdisciplinary Approach Towards Fostering Collaborative Innovation in Food Waste Management (IN2FOOD)</h1>
-        <h2>Gallery Project</h2>
-        <div class="gallery">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5ytBR4ZeCfPURA5gGmBM5vx9KSZDvOtoXyQ&s" alt="Project Image 1">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThHKADxexcpqeHBlfNEchwP08i1MaFbwx1eg&s" alt="Project Image 2">
-            <img src="https://cms.hotelschool.nl/storage/media/IN2FOOD-2.JPG?v=1667908806" alt="Project Image 3">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdnLtQnoQTFcNO0cFXuzs_snVcWw1l_3Vw-Q&s" alt="Project Image 4">
-            <img src="https://bidc.binus.ac.id/files/2021/04/IN2FOOD-TEAM.jpg" alt="Project Image 5">
-        </div>
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Project Gallery - Sesaria Kikitamara{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0; /* Reset margin body */
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Ensure body takes full viewport height */
+    }
+
+    .container {
+        flex: 1; /* Key: Allow container to grow and take up available space */
+        max-width: 1000px;
+        margin: auto;
+        padding: 40px 20px; /* Padding for content, include top margin */
+        text-align: center; /* Center text within container */
+    }
+
+    h1 {
+        font-size: 22px;
+
+    }
+
+    h2 {
+        font-size: 20px;
+        text-align: left;
+        padding-top: 30px;
+    }
+
+    .gallery {
+  display: grid; /* Mengaktifkan grid layout */
+  grid-template-columns: repeat(3, 1fr); /* Membuat 3 kolom sama lebar */
+  grid-template-rows: repeat(2, 1fr); /* Membuat 2 baris sama tinggi */
+  gap: 20px; /* Jarak antar gambar */
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 100%; /* Gambar mengisi lebar kolom */
+  height: 100%; /* Gambar mengisi tinggi baris */
+  object-fit: cover; /* Memastikan gambar menutupi area dengan proporsi yang benar */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #1A3B7D;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        font-size: 18px;
+        font-weight: bold;
+        z-index: 1000;
+    }
+
+    .footer {
+        background-color: #1A3B7D;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        width: 100%; /* Ensure footer takes full width */
+        margin-top: auto; /* Push footer to the bottom */
+    }
+</style>
+
+<div class="container">
+    <h1><b>Erasmus+ CBHE - Interdisciplinary Approach Towards Fostering Collaborative Innovation in Food Waste Management (IN2FOOD)</b></h1>
+    <h2><b>Gallery Project</b></h2>
+    <div class="gallery">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5ytBR4ZeCfPURA5gGmBM5vx9KSZDvOtoXyQ&s" alt="Project Image 1">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThHKADxexcpqeHBlfNEchwP08i1MaFbwx1eg&s" alt="Project Image 2">
+        <img src="https://cms.hotelschool.nl/storage/media/IN2FOOD-2.JPG?v=1667908806" alt="Project Image 3">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdnLtQnoQTFcNO0cFXuzs_snVcWw1l_3Vw-Q&s" alt="Project Image 4">
+        <img src="https://bidc.binus.ac.id/files/2021/04/IN2FOOD-TEAM.jpg" alt="Project Image 5">
     </div>
-</body>
-</html>
+</div>
+{% endblock %}
