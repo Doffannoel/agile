@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Research Project - IN2FOOD{% endblock %}
+{% block title %}Home - Sesaria Kikitamara{% endblock %}
 
 {% block content %}
 <!DOCTYPE html>
@@ -14,14 +14,30 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 80px;
+            padding: 0; /* Hilangkan padding default body */
             background-color: white;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Penting untuk sticky footer */
         }
-        .container {
-            width: 100%;
-            padding: 20px;
+
+        body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+            flex: 1; /* Atau flex-grow: 1;  Ini yang penting! */
+            padding: 80px; /* Padding untuk konten, jangan di body */
         }
+
+footer {
+    margin-top: auto; /* mendorong footer ke bawah */
+    /* tambahkan properti CSS lain sesuai kebutuhan Anda */
+}
+
         .status {
             display: inline-block;
             background-color: #f8d7da;
@@ -105,6 +121,35 @@
             font-size: 18px;
             line-height: 1.6;
         }
+
+        .navbar {
+    position: fixed; /* Tetap di atas saat scroll */
+    top: 0; /* Menempel ke atas */
+    left: 0;
+    width: 100%; /* Full width */
+    background-color: #1A3B7D; /* Warna latar belakang */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 1000; /* Pastikan navbar ada di atas konten lain */
+}
+
+.footer {
+        background-color: #1A3B7D;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: auto;
+        width: 100vw;
+        position: relative;
+        bottom: 0;
+        left: 0;
+    }
+
     </style>
 </head>
 <body>
