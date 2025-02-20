@@ -13,6 +13,110 @@
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
         }
+        /* Navbar */
+        .navbar {
+            background-color: #1A3B7D;
+            padding: 20px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .navbar .logo {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 6px;
+        }
+
+        .nav-links a.active::after,
+        .nav-links a:hover::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -3px;
+            width: 80%;
+            height: 2px;
+            background-color: white;
+        }
+
+        /* Header */
+        .header-container {
+            background-color: #1A3B7D;
+            padding: 50px 10%;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-title {
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            letter-spacing: -0.5px;
+        }
+
+        /* Garis putih atas */
+        .header-container::before {
+            content: '';
+            width: 75%;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Garis putih bawah */
+        .header-container::after {
+            content: '';
+            width: 75%;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -32,9 +136,6 @@
         </div>
     </nav>
 
-    <div class="header-container">
-        <h1 class="header-title">The Scholar’s Desk</h1>
-    </div>
 
     <!-- Page Content -->
     <main class="container mx-auto px-6 py-8">
@@ -43,40 +144,150 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-blue-900 text-white text-center py-10 mt-8">
-        <div class="footer-line border-t border-white max-w-5xl mx-auto mb-4"></div>
-        <div class="footer-container max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+    <footer class="footer">
+        <!-- Garis Putih Atas -->
+        <div class="footer-line"></div>
+    
+        <div class="footer-container">
+            <!-- Bagian Kiri - Logo Universitas -->
             <div class="footer-logo">
-                <img src="{% static 'images/logoPM.png' %}" alt="Universitas Prasetiya Mulya" class="h-40">
+                <img src="{% static 'images/logoPM.png' %}" alt="Universitas Prasetiya Mulya" class="footer-logo-img">
             </div>
-            <div class="footer-contact text-left">
-                <p><i class="fas fa-map-marker-alt mr-2"></i> BSD, Pagedangan, Kabupaten Tangerang, Banten 15339</p>
-                <p><i class="fas fa-phone mr-2"></i> (123) 456-7890</p>
-                <p><i class="fas fa-print mr-2"></i> (123) 456-7890</p>
+    
+            <!-- Bagian Tengah - Informasi Kontak -->
+            <div class="footer-contact">
+                <p><i class="fas fa-map-marker-alt"></i> BSD, Pagedangan, Kabupaten Tangerang, Banten 15339</p>
+                <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                <p><i class="fas fa-print"></i> (123) 456-7890</p>
+    
+                <!-- Bagian Bawah - Social Media -->
+                <div class="footer-social">
+                    <p>Social Media</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fas fa-rss"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="footer-social mt-6">
-            <p>Social Media</p>
-            <div class="social-icons flex justify-center space-x-4 text-xl">
-                <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
-            </div>
+    
+        <!-- Garis Putih Bawah -->
+        <div class="footer-line"></div>
+    
+        <!-- Navigasi Footer -->
+        <div class="footer-nav">
+            <a href="#">ABOUT US</a>
+            <a href="#">CONTACT US</a>
+            <a href="#">HELP</a>
+            <a href="#">PRIVACY POLICY</a>
+            <a href="#">DISCLAIMER</a>
         </div>
-        <div class="footer-line border-t border-white max-w-5xl mx-auto mt-6"></div>
-        <div class="footer-nav flex flex-wrap justify-center space-x-4 mt-4">
-            <a href="#" class="text-white">ABOUT US</a>
-            <a href="#" class="text-white">CONTACT US</a>
-            <a href="#" class="text-white">HELP</a>
-            <a href="#" class="text-white">PRIVACY POLICY</a>
-            <a href="#" class="text-white">DISCLAIMER</a>
-        </div>
-        <div class="footer-copyright text-sm mt-4">
+    
+        <!-- Copyright di pojok kanan bawah -->
+        <div class="footer-copyright">
             © 2025 Prasetiya Mulya University. All rights reserved.
         </div>
-    </footer>
+    
+        <!-- Area Putih untuk Sosial Media -->
+    
+    
+    <style>
+        .footer {
+            background-color: #1A3B7D; /* Ganti warna sesuai referensi */
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 16px;
+        }
+    
+        .footer-line {
+            border-top: 1px solid white;
+            max-width: 85%;
+            margin: 10px auto;
+        }
+    
+        .footer-container {
+        display: flex;
+        justify-content: space-between; /* Pastikan elemen tersebar dengan baik */
+        align-items: center;
+        max-width: 1200px;
+        margin: auto;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+    
+        .footer-logo {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+    
+        .footer-logo-img {
+            max-height: 150px !important; /* Tambahkan !important untuk memastikan perubahan */
+            width: auto;
+
+        }
+    
+        .footer-contact {
+            color: white !important; /* Pastikan teks berubah menjadi putih */
+        }
+        
+        .footer-contact p {
+            color: white !important; /* Jika teks masih tidak berubah, tambahkan ini */
+        }
+        
+        .footer-contact {
+            flex: 2;
+            text-align: left; /* Tetap rata kiri */
+            color: white;
+            line-height: 1.8;
+            margin-left: 200px; /* Geser teks sedikit ke kanan */
+        }
+    
+        .footer-social {
+            margin-top: 20px;
+        }
+    
+        .footer-social .social-icons a {
+            color: white;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+    
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+    
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+        }
+    
+        .footer-copyright {
+            margin-top: 10px;
+        }
+    
+        .footer-social-bottom {
+            background-color: #F1F1F1;
+            color: #333;
+            padding: 10px;
+            font-size: 14px;
+        }
+    
+        .footer-social-bottom a {
+            color: #333;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+    </style>
+
 
 </body>
 </html>

@@ -1,3 +1,9 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home - Sesaria Kikitamara{% endblock %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,21 +14,46 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0; /* Hilangkan padding default body */
             background-color: white;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Penting untuk sticky footer */
         }
-        .container {
-            width: 100%;
-            padding: 20px;
+
+        body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+            flex: 1; /* Atau flex-grow: 1;  Ini yang penting! */
+            padding: 80px; /* Padding untuk konten, jangan di body */
         }
+
+footer {
+    margin-top: auto; /* mendorong footer ke bawah */
+    /* tambahkan properti CSS lain sesuai kebutuhan Anda */
+}
+
         .status {
-            color: red;
+            display: inline-block;
+            background-color: #f8d7da;
+            color: #721c24;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 18px;
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+        .date {
+            font-size: 18px;
+            color: #666;
+            margin-top: 5px;
         }
         h1 {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
         }
         .project-img {
@@ -32,34 +63,37 @@
         }
         .description {
             margin-top: 15px;
-            font-size: 14px;
+            font-size: 18px;
             line-height: 1.6;
             color: #555;
         }
         h2 {
-            font-size: 18px;
+            font-size: 22px;
             font-weight: bold;
             margin-top: 25px;
         }
         .methodology ul, .results ul {
             list-style-type: decimal;
             padding-left: 20px;
-            font-size: 14px;
+            font-size: 18px;
         }
         .gallery-container {
             display: flex;
             align-items: flex-start;
             margin-top: 20px;
+            gap: 20px;
         }
         .gallery-section {
             width: 40%;
-            padding: 10px;
+            padding: 20px;
             border-radius: 10px;
+            background: #f5f5f5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .project-gallery {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 20px;
         }
         .gallery-item {
             width: 100%;
@@ -69,22 +103,71 @@
             width: 55%;
             margin-left: 5%;
         }
+        .see-more {
+            display: block;
+            text-align: left;
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .see-more:hover {
+            text-decoration: underline;
+        }
+        .methodology ul, .results ul {
+            list-style-type: decimal;
+            padding-left: 20px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .navbar {
+    position: fixed; /* Tetap di atas saat scroll */
+    top: 0; /* Menempel ke atas */
+    left: 0;
+    width: 100%; /* Full width */
+    background-color: #1A3B7D; /* Warna latar belakang */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 1000; /* Pastikan navbar ada di atas konten lain */
+}
+
+.footer {
+        background-color: #1A3B7D;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: auto;
+        width: 100vw;
+        position: relative;
+        bottom: 0;
+        left: 0;
+    }
+
     </style>
 </head>
 <body>
     <div class="container">
         <p class="status">On Progress</p>
+        <p class="date">Feb 2021 - Now</p>
         <h1>Erasmus+ CBHE - Interdisciplinary Approach Towards Fostering Collaborative Innovation in Food Waste Management (IN2FOOD)</h1>
-        <img src="https://example.com/research_main.jpg" alt="Project Image" class="project-img">
+        <img src="https://cms.hotelschool.nl/storage/media/IN2FOOD-2.JPG?v=1667908806" alt="Project Image" class="project-img">
         
         <div class="gallery-container">
             <div class="gallery-section">
                 <h2>Project Gallery</h2>
                 <div class="project-gallery">
-                    <img src="https://example.com/gallery1.jpg" alt="Gallery Image 1" class="gallery-item">
-                    <img src="https://example.com/gallery2.jpg" alt="Gallery Image 2" class="gallery-item">
-                    <img src="https://example.com/gallery3.jpg" alt="Gallery Image 3" class="gallery-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThHKADxexcpqeHBlfNEchwP08i1MaFbwx1eg&s" alt="Gallery Image 1" class="gallery-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5ytBR4ZeCfPURA5gGmBM5vx9KSZDvOtoXyQ&s" alt="Gallery Image 2" class="gallery-item">
+                    <img src="https://cms.hotelschool.nl/storage/media/IN2FOOD-2.JPG?v=1667908806" alt="Gallery Image 3" class="gallery-item">
                 </div>
+                <a href="projectGallery" class="see-more">See More</a>
             </div>
             <div class="text-content">
                 <p class="description">
@@ -101,7 +184,6 @@
                         <li>Dissemination - Publishing research and educational campaigns.</li>
                     </ul>
                 </div>
-
                 <h2>Results</h2>
                 <div class="results">
                     <ul>
@@ -115,5 +197,6 @@
             </div>
         </div>
     </div>
+    {% endblock %}
 </body>
 </html>

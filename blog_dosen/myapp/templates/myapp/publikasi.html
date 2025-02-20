@@ -1,4 +1,9 @@
+{% extends "base.html" %}
 {% load static %}
+
+{% block title %}Home - Sesaria Kikitamara{% endblock %}
+
+{% block content %}
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -15,19 +20,7 @@
     />
   </head>
   <body class="font-roboto bg-gray-100">
-    <nav class="bg-blue-900 text-white p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <div class="text-lg font-bold">Sesaria Kiki Tamara</div>
-        <div class="space-x-4">
-          <a class="hover:underline" href="#"> Blog </a>
-          <a class="hover:underline" href="#"> About Me </a>
-          <a class="hover:underline" href="#"> Project List </a>
-          <a class="hover:underline" href="#"> Research Activities </a>
-          <a class="underline font-bold" href="#"> Publication </a>
-          <a class="hover:underline" href="#"> Open Recruitment </a>
-        </div>
-      </div>
-    </nav>
+    
     <div class="container mx-auto mt-8 flex flex-col lg:flex-row">
       <div class="lg:w-2/3 bg-white p-6 rounded-lg shadow-lg">
         <div class="flex items-center mb-6">
@@ -216,5 +209,7 @@
         </div>
       </div>
     </div>
+{% endblock %}
+
   </body>
 </html>
