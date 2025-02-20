@@ -13,3 +13,6 @@ def landing_page(request):
 
 def pkm_(request):
     return render(request, 'myapp/pkm.html')
+
+def project_gallery(request):
+    return render(request, 'projectGallery.html')
