@@ -1,5 +1,9 @@
+{% extends "base.html" %}
 {% load static %}
 
+{% block title %}Home - Sesaria Kikitamara{% endblock %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -99,9 +103,10 @@
         }
 
         .text-section h2 {
-            font-size: 24px;
+            font-size: 40px;
             font-weight: bold;
             color: #1a202c; /* Warna teks utama */
+            white-space: nowrap;
         }
 
         .text-section ul {
@@ -167,6 +172,8 @@
             margin-top: 40px;
         }
 
+        
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
@@ -195,7 +202,7 @@
 <body>
 
     <!-- Navbar -->
-    <div class="navbar">
+    <!-- <div class="navbar">
         <div class="container">
             <div class="brand">Sesaria Kiki Tamara</div>
             <div>
@@ -207,7 +214,7 @@
                 <a href="#">Publication</a>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Konten PKM -->
     <div class="container">
@@ -225,7 +232,7 @@
 
         <!-- Konten Tambahan -->
         <div class="text-section">
-            <h2 class="text-3xl font-semibold">Advancing Higher Education for Sustainable Food Waste Management</h2>
+            <h2 class="text-[60px] font-semibold">Advancing Higher Education for Sustainable Food Waste Management</h2>
             <p class="text-lg text-gray-600">
                 The Erasmus+ Capacity Building in Higher Education (CBHE) project, titled “Interdisciplinary Approach Towards Fostering 
                 Collaborative Innovation in Food Waste Management” (IN2FOOD), is a collaborative initiative aimed at addressing the pressing 
@@ -277,7 +284,7 @@
             </div>
         </div>
     </div>
+{% endblock %}
 
-    {% include 'myapp/footer.html' %}
 </body>
 </html>
