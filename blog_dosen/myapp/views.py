@@ -5,6 +5,9 @@ def publikasi_view(request):
     publikasi_list = Publikasi.objects.all()
     return render(request, 'myapp/publikasi.html', {'publikasi_list': publikasi_list})
 
+def page_project(request):
+    return render(request, 'myapp/project.html')
+
 def detail_project(request):
     return render(request, 'myapp/detailProject.html')
 
