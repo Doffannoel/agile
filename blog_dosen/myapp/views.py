@@ -22,3 +22,6 @@ def teaching(request):
 
 def teachingdetail(request):
     return render(request, 'myapp/teachingdetail.html')
+
+def research_(request):
+    return render(request, 'myapp/research.html')
