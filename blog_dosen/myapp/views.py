@@ -6,7 +6,7 @@ def publikasi_view(request):
     publikasi_list = Publikasi.objects.all()
     
     # Mengelompokkan jumlah kutipan berdasarkan tahun
-    citation_data = {year: 0 for year in range(2018, 2026)}
+    citation_data = {year: 0 for year in range(2017, 2025)}
     for publikasi in publikasi_list:
         if publikasi.tahun in citation_data:
             citation_data[publikasi.tahun] += publikasi.dikutip_oleh

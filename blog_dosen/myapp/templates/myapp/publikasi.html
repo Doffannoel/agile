@@ -1,4 +1,4 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% load static %}
 
 {% block extra_head %}
@@ -70,7 +70,7 @@ Publikasi Dosen - Sesaria Kikitamara
     <div class="mb-6">
       <div class="flex justify-between items-center mb-2">
         <span class="text-gray-600">Semua</span>
-        <span class="text-gray-600">Sejak 2020</span>
+        <span class="text-gray-600">Sejak 2017</span>
       </div>
       <!-- Chart container -->
       <canvas id="citationChart" width="400" height="200"></canvas>
@@ -113,47 +113,44 @@ Publikasi Dosen - Sesaria Kikitamara
 {% block extra_js %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var citationData = JSON.parse("{{ citation_data|safe }}");
-
-    // Log data untuk memastikan formatnya benar
+document.addEventListener("DOMContentLoaded", function () {
+    var citationData = JSON.parse('{{ citation_data|escapejs }}');
     console.log("Citation Data:", citationData);
 
-    // Validasi data sebelum digunakan
     if (citationData && Object.keys(citationData).length > 0) {
-      var years = Object.keys(citationData);
-      var citations = Object.values(citationData).map(function (value) {
-        return isNaN(value) ? 0 : value; // Pastikan data berupa angka
-      });
+        var years = Object.keys(citationData);
+        var citations = Object.values(citationData).map(function (value) {
+            return isNaN(value) ? 0 : value; // Ensure all values are numbers
+        });
 
-      var ctx = document.getElementById("citationChart").getContext("2d");
-      new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: years,
-          datasets: [
-            {
-              label: "Jumlah Kutipan",
-              data: citations,
-              backgroundColor: "rgba(54, 162, 235, 0.5)",
-              borderColor: "rgba(54, 162, 235, 1)",
-              borderWidth: 1,
+        var ctx = document.getElementById("citationChart").getContext("2d");
+        new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: years,
+                datasets: [
+                    {
+                        label: "Jumlah Kutipan",
+                        data: citations,
+                        backgroundColor: "rgba(54, 162, 235, 0.5)",
+                        borderColor: "rgba(54, 162, 235, 1)",
+                        borderWidth: 1,
+                    },
+                ],
             },
-          ],
-        },
-        options: {
-          responsive: true,
-          scales: {
-            y: {
-              beginAtZero: true,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
             },
-          },
-        },
-      });
+        });
     } else {
-      console.log("Tidak ada data untuk ditampilkan.");
+        console.log("Tidak ada data untuk ditampilkan.");
     }
-  });
+});
 </script>
 {% endblock %}
 
