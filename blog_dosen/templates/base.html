@@ -126,12 +126,12 @@
         <div class="nav-container">
             <div class="logo">Sesaria Kiki Tamara</div>
             <div class="nav-links">
-                <a href="#" class="active">Blog</a>
-                <a href="#">Community Service</a>
-                <a href="#">Research</a>
+                <a href="{% url "landing_page" %}" class="active">Blog</a>
+                <a href="{% url "pkm_list" %}">Community Service</a>
+                <a href="{% url "research_list" %}">Research</a>
                 <a href="#">Teaching</a>
                 <a href="#">Open Recruitment</a>
-                <a href="#">Publication</a>
+                <a href="{% url 'publikasi' %}">Publication</a>
             </div>
         </div>
     </nav>
