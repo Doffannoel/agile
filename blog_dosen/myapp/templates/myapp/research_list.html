@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Research Projects - Sesaria Kikitamara
+{% endblock %}
+{% block content %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research Projects - Sesaria Kikitamara</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8fafc;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      .content {
+        margin-top: 100px;
+      }
+      .experience-section {
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px 10px;
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        justify-content: center;
+      }
+      .grid-item {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: 0.3s;
+      }
+      .grid-item:hover {
+        transform: translateY(-5px);
+      }
+      .grid-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .grid-content {
+        padding: 16px;
+      }
+      .grid-content p {
+        margin: 5px 0;
+      }
+      .tag {
+        display: inline-block;
+        padding: 4px 8px;
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 6px;
+        margin-top: 6px;
+      }
+      /* Label warna berdasarkan status */
+      .tag-on-progress {
+        background-color: pink;
+        color: white;
+      }
+      .tag-done {
+        background-color: blue;
+        color: white;
+      }
+      @media (max-width: 768px) {
+        .grid-container {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+      .filter-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+        padding-right: 150px;
+      }
+      .filter-container select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chevron-down' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>")
+          no-repeat right 10px center;
+        padding-right: 30px;
+      }
+      .filter-container select:focus {
+        outline: none;
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      }
+
+    .tag-blue {
+    background-color:rgb(211, 226, 249); /* Warna latar belakang ungu terang */
+    color:rgb(33, 58, 245); /* Warna teks ungu gelap */
+}
+    </style>
+  </head>
+  <body>
+<div class="filter-container">
+  <form method="get" action="{% url 'research_list' %}" id="filter-form">
+    <select name="filter" onchange="document.getElementById('filter-form').submit();">
+      <option value="all" {% if request.GET.filter == 'all' %}selected{% endif %}>All</option>
+      <option value="on_progress" {% if request.GET.filter == 'on_progress' %}selected{% endif %}>On Progress</option>
+      <option value="done" {% if request.GET.filter == 'done' %}selected{% endif %}>Done</option>
+    </select>
+  </form>
+</div> 
+    <div class="experience-section">
+      <h1 class="text-2xl font-bold mb-6 text-center">
+        Research Projects List
+      </h1>
+      <div class="grid-container">
+        {% for research in researches %}
+        <a href="{% url 'research_detail' research.id %}" class="grid-item">
+          <img src="{{ research.gambar.url }}" alt="{{ research.judul }}" />
+          <div class="grid-content">
+            <p class="text-blue-600">{{ research.tanggal }}</p>
+            <h2 class="text-xl font-bold">{{ research.judul }}</h2>
+            <span class="tag {% if research.status == 'on_progress' %}tag-on-progress{% else %}tag-done{% endif %}">{{ research.status|title }}</span>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>

@@ -131,6 +131,7 @@
         <div class="nav-container">
             <div class="logo">Sesaria Kikitamara</div>
             <div class="nav-links">
+<<<<<<< HEAD
                 <a href="/" id="blog">Blog</a>
                 <a href="/pkm/" id="community">Community Service</a>
                 <a href="/research/" id="research">Research</a>
@@ -138,6 +139,15 @@
                 <a href="recruitment.html" id="recruitment">Open Recruitment</a>
                 <a href="/publikasi/" id="publication">Publication</a>
             </div>            
+=======
+                <a href="{% url "landing_page" %}" class="active">Blog</a>
+                <a href="{% url "pkm_list" %}">Community Service</a>
+                <a href="{% url "research_list" %}">Research</a>
+                <a href="{% url "teaching" %}">Teaching</a>
+                <a href="#">Open Recruitment</a>
+                <a href="{% url 'publikasi' %}">Publication</a>
+            </div>
+>>>>>>> 0d198c7cb8c3e1abca127e53d1f0828aeb289b46
         </div>
     </nav>
 

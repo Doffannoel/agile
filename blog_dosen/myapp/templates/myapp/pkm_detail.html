@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home - Sesaria Kikitamara{% endblock %}
+
+{% block content %}
+
+    <style>
+        /* Global Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+
+        /* Container */
+        .title-container {
+            max-width: 1200px; /* Lebarkan area teks */
+            margin: 0 auto; /* Pusatkan */
+            text-align: center; /* Rata tengah */
+        }
+
+        /* Header Text */
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #1a202c;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #1a202c;
+        }
+
+        p {
+            font-size: 16px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Main Image */
+        .main-image {
+    width: 700%; /* Pastikan gambar responsif */
+    max-width: 1000px; /* Batasi ukuran maksimal */
+    display: block; /* Pastikan gambar dalam blok */
+    margin: 20px auto; /* Pusatkan gambar */
+    border-radius: 10px; /* Pastikan radius seragam */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Tambahkan efek shadow */
+    transform: rotate(0deg); /* Pastikan gambar tidak miring */
+    object-fit: cover; /* Pastikan gambar proporsional */
+}
+
+        /* Text Section */
+        .text-section {
+    width: 90%; /* Sesuaikan dengan gambar */
+    max-width: 1800px; /* Batasi ukuran */
+    margin: auto; /* Pusatkan teks */
+    text-align: left; /* Rata kiri */
+        }
+
+        .text-section h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #1a202c;
+    margin-bottom: 10px;
+}
+
+.text-section p {
+    font-size: 16px;
+    color: #4a5568;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+        .text-section ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .text-section li {
+            font-size: 16px;
+            color: #4a5568; /* Warna abu-abu */
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        /* Related Articles */
+        .related-articles {
+            margin-top: 40px;
+        }
+
+        .related-articles h2 {
+            margin-bottom: 20px;
+        }
+
+        .grid-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .grid-item {
+            width: 250px;
+            text-align: center;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .grid-item h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #1a202c;
+        }
+
+        .grid-item p {
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+
+        
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .grid-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .grid-item {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+        <!-- <div class="navbar">
+            <div class="container">
+                <div class="brand">Sesaria Kiki Tamara</div>
+                <div>
+                    <a href="#" class="active">Comunity Service</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Research</a>
+                    <a href="#">Teaching</a>
+                    <a href="#">Open Recruitment</a>
+                    <a href="#">Publication</a>
+                </div>
+            </div>
+        </div> -->
+
+    <!-- Konten PKM -->
+    <div class="container">
+        <div class="content text-center">
+            <p class="text-gray-600 text-sm font-semibold">Feb 2021 - Now</p>
+            <h1 class="text-5xl font-bold max-w-7xl mt-9 leading-tight">
+                Erasmus+ CBHE - Interdisciplinary Approach Towards Fostering Collaborative Innovation in Food Waste Management (IN2FOOD)
+            </h1>
+            <p class="text-gray-700 mt-2 max-w-3xl mx-auto">
+                IN2FOOD aims to foster sustainable food waste management by integrating expertise from various disciplines,
+                encouraging innovation, and strengthening collaboration between academia and industry.
+            </p>
+            <img src="{% static 'images/foto1.png' %}" alt="IN2FOOD Group" class="main-image">
+        </div>
+
+        <!-- Konten Tambahan -->
+        <div class="text-section">
+            <h2 class="text-[60px] font-semibold">Advancing Higher Education for Sustainable Food Waste Management</h2>
+            <p class="text-lg text-gray-600">
+                The Erasmus+ Capacity Building in Higher Education (CBHE) project, titled “Interdisciplinary Approach Towards Fostering 
+                Collaborative Innovation in Food Waste Management” (IN2FOOD), is a collaborative initiative aimed at addressing the pressing 
+                issue of food waste through interdisciplinary education and research. This project brings together a consortium of eight 
+                universities, including three from Europe and five from Indonesia, working collectively to enhance the capabilities of 
+                Indonesian higher education institutions in managing food waste. 
+            </p>
+        </div>
+
+        <div class="text-section">
+            <h2 class="text-3xl font-semibold">Objectives of IN2FOOD</h2>
+            <ul className="text-lg text-gray-600">
+                <li>Curriculum Development: The project focuses on creating and implementing interdisciplinary courses and a master’s program curriculum specifically tailored to food waste management. This educational framework is designed to equip students with the necessary knowledge and skills to tackle food waste challenges effectively.</li>
+                <li>Research Center Establishment: The project focuses on creating and implementing interdisciplinary courses and a master’s program curriculum specifically tailored to food waste management. This educational framework is designed to equip students with the necessary knowledge and skills to tackle food waste challenges effectively.</li>
+                <li>Co-Curricular Activities: The project includes organizing interdisciplinary summer schools and student competitions to foster collaborative innovation among students from diverse academic backgrounds. For instance, the “Food Waste To Finish” (FWTF) summer school held in Bali in 2022 provided participants with hands-on experience in addressing food waste issues.</li>
+            </ul>
+        </div>
+
+        <div class="text-section">
+            <h2 class="text-3xl font-semibold">Significance of the Project</h2>
+            <p class="text-lg text-gray-600">
+                Indonesia is recognized as one of the largest contributors to food waste globally. 
+                By enhancing the capacity of its higher education institutions through interdisciplinary approaches, 
+                IN2FOOD seeks to develop sustainable solutions to this critical issue. The project’s emphasis on collaborative 
+                innovation ensures that various perspectives are integrated, leading to more comprehensive and effective strategies
+                 in food waste management.
+            </p>
+        </div>
+
+        <!-- Artikel Terkait -->
+        <div class="related-articles">
+            <h2 class="text-center text-4xl font-extrabold">Related Articles</h2>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="{% static 'images/foto2.png' %}" alt="Prodoctoral">
+                    <h3>Prodoctoral Program Course Program</h3>
+                    <p>Software Development</p>
+                </div>
+                <div class="grid-item">
+                    <img src="{% static 'images/foto3.png' %}" alt="Prodoctoral">
+                    <h3>Scholarly Research</h3>
+                    <p>Research</p>
+                </div>
+                <div class="grid-item">
+                    <img src="{% static 'images/foto4.png' %}" alt="Prodoctoral">
+                    <h3>Kedaireka - Modern Farm</h3>
+                    <p>IoT</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+</body>
+</html>

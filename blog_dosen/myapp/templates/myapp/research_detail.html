@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Research Project - {{ research.judul }}
+{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0; /* Remove default padding from body */
+            background-color: white;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures sticky footer */
+        }
+
+        .container {
+            flex: 1;
+            padding: 80px;
+        }
+
+        footer {
+            margin-top: auto; /* Pushes footer to the bottom */
+        }
+
+        /* Status styles */
+        .status {
+            display: inline-block;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+        .status-on-progress {
+            background-color: pink;
+            color: white;
+        }
+        .status-done {
+            background-color: blue;
+            color: white;
+        }
+
+        .date {
+            font-size: 18px;
+            color: #666;
+            margin-top: 5px;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .project-img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .description {
+            margin-top: 15px;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+        h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 25px;
+        }
+        .methodology ul, .results ul {
+            list-style-type: decimal;
+            padding-left: 20px;
+            font-size: 18px;
+        }
+        .gallery-container {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 20px;
+            gap: 20px;
+        }
+        .gallery-section {
+            width: 40%;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f5f5f5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .project-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .gallery-item {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .text-content {
+            width: 55%;
+            margin-left: 5%;
+        }
+        .see-more {
+            display: block;
+            text-align: left;
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .see-more:hover {
+            text-decoration: underline;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1A3B7D;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            font-size: 18px;
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        .footer {
+            background-color: #1A3B7D;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+            width: 100vw;
+            position: relative;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+
+    <div class="container">
+        <p class="status {% if research.status == 'on_progress' %}status-on-progress{% else %}status-done{% endif %}">
+            {{ research.status|title }}
+        </p>
+        <p class="date">{{ research.tanggal }}</p>
+        <h1>{{ research.judul }}</h1>
+        <img src="{{ research.gambar.url }}" alt="Project Image" class="project-img">
+        
+        <div class="gallery-container">
+            <div class="gallery-section">
+                <h2>Project Gallery</h2>
+                <div class="project-gallery">
+                    <!-- Assuming you have a related model for gallery images -->
+                    {% for image in research.gallery.all|slice:":3" %}
+                        <img src="{{ image.gambar.url }}" alt="Gallery Image" class="gallery-item">
+                    {% endfor %}
+                </div>
+                <a href="{% url 'project_gallery' research.id %}" class="see-more">See More</a>
+            </div>
+
+            <div class="text-content">
+                <p class="description">{{ research.deskripsi }}</p>
+                
+                <h2>Methodology</h2>
+                <div class="methodology">
+                    <ul>
+                        {% for item in research.metodologi.splitlines %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <h2>Results</h2>
+                <div class="results">
+                    <ul>
+                        {% for item in research.hasil.splitlines %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
