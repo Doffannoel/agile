@@ -61,6 +61,12 @@ def teaching(request):
 def teachingdetail(request):
     return render(request, 'myapp/teachingdetail.html')
 
+def teachingdetail2(request):
+    return render(request, 'myapp/teachingdetail2.html')
+
+def teachingdetail3(request):
+    return render(request, 'myapp/teachingdetail3.html')
+
 def research_list(request):
     filter_type = request.GET.get('filter', 'all')
     
