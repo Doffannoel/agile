@@ -1,6 +1,8 @@
-from django.shortcuts import get_object_or_404, render
-from .models import PKM, Publikasi, Research, ResearchGallery
+from django.shortcuts import get_object_or_404, render , redirect
+from .models import PKM, Publikasi, Research, ResearchGallery, Registration , Job
 import json
+from .forms import RegistrationForm
+from django.contrib import messages
 
 def publikasi_view(request):
     publikasi_list = Publikasi.objects.all()
@@ -80,3 +82,22 @@ def research_list(request):
         researches = researches.filter(status='done')
 
     return render(request, 'myapp/research_list.html', {'researches': researches})
+
+def job_list(request):
+    jobs = Job.objects.all()
+    
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()  # Menyimpan data ke database
+            messages.success(request, "Data berhasil dikirim!") 
+            success = True  
+            return redirect('success') 
+        else : 
+            messages.error(request, f'Form tidak valid: {form.errors}.')
+    else:
+        form = RegistrationForm()
+    return render(request, 'myapp/job_list.html', {'form': form})
+
+def registration_success(request):
+    return render(request, 'myapp/success.html',{})

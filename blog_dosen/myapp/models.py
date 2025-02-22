@@ -42,3 +42,33 @@ class ResearchGallery(models.Model):
 
     def __str__(self):
         return f"Gallery for {self.research.judul}"
+
+class Job(models.Model):
+    title = models.CharField(max_length=255)
+    company = models.CharField(max_length=255)
+    location = models.CharField(max_length=255)
+    education = models.CharField(max_length=255)
+    job_type = models.CharField(max_length=100)
+    function = models.CharField(max_length=100)
+    responsibilities = models.TextField()
+    skills = models.TextField()
+    qualifications = models.TextField()
+    working_time = models.TextField()
+    posted_date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+    
+class Registration(models.Model):
+    name = models.CharField(max_length=255, null=True, blank=True)
+    gender = models.CharField(max_length=10, null=True, blank=True)
+    phone = models.CharField(max_length=20, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    birthdate = models.DateField(null=True, blank=True)
+    age = models.IntegerField(null=True, blank=True)
+    address = models.TextField(null=True, blank=True)
+    education = models.CharField(max_length=255, null=True, blank=True)
+    cv = models.FileField(upload_to='cvs/')
+
+    def __str__(self):
+        return f"{self.name}"

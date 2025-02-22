@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import Publikasi, PKM, Research, ResearchGallery
+from .models import Publikasi, PKM, Research, ResearchGallery , Registration
 
 # Registering the Publikasi model
 admin.site.register(Publikasi)
@@ -52,3 +52,4 @@ class ResearchAdmin(admin.ModelAdmin):
 # Mendaftarkan ResearchAdmin ke model Research
 admin.site.register(Research, ResearchAdmin)
 admin.site.register(ResearchGallery)
+admin.site.register(Registration)
