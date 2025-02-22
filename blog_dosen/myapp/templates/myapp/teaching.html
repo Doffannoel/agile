@@ -80,15 +80,19 @@
     <main>
         <h1>All Subjects</h1>
         <div class="subject-grid">
-            <div class="subject-card">
-                <img src="{% static 'images/images1.jpg' %}" alt="Agile Project Management">
-                <p>Agile Project Management</p>
-            </div>
-            <div class="subject-card">
+            <a href="{% url 'teachingdetail' %}" style="text-decoration: none; color: inherit;">
+                <div class="subject-card">
+                    <img src="{% static 'images/images1.jpg' %}" alt="Agile Project Management">
+                    <p>Agile Project Management</p>
+                </div>
+            </a>            
+            <a href="{% url 'teachingdetail2' %}" style="text-decoration: none; color: inherit;">
+                <div class="subject-card">
                 <img src="{% static 'images/images4.jpg' %}" alt="Computer Architecture and Organization">
                 <p>Computer Architecture and Organization</p>
             </div>
-            <div class="subject-card">
+            <a href="{% url 'teachingdetail3' %}" style="text-decoration: none; color: inherit;">
+                <div class="subject-card">
                 <img src="{% static 'images/images5.jpg' %}" alt="Creativity and Technological Innovation">
                 <p>Creativity and Technological Innovation</p>
             </div>
