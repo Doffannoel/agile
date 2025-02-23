@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render , redirect
-from .models import PKM, Publikasi, Research, ResearchGallery, Registration , Job
+from .models import PKM, Publikasi, Research, ResearchGallery, Registration , Job, Subject
 import json
 from .forms import RegistrationForm
 from django.contrib import messages
@@ -58,16 +58,12 @@ def project_gallery(request, id):
     })
 
 def teaching(request):
-    return render(request, 'myapp/teaching.html')
+    subjects = Subject.objects.all()
+    return render(request, 'myapp/teaching.html', {'subjects': subjects})
 
-def teachingdetail(request):
-    return render(request, 'myapp/teachingdetail.html')
-
-def teachingdetail2(request):
-    return render(request, 'myapp/teachingdetail2.html')
-
-def teachingdetail3(request):
-    return render(request, 'myapp/teachingdetail3.html')
+def teaching_detail(request, subject_slug):
+    subject = get_object_or_404(Subject, slug=subject_slug)
+    return render(request, 'myapp/teaching_detail.html', {'subject': subject})
 
 def research_list(request):
     filter_type = request.GET.get('filter', 'all')
