@@ -18,18 +18,23 @@
     margin: 40px 0;
   }
 
-  /* Card */
   .subject-card {
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background-color: #fff;
-    overflow: hidden;
-    text-align: center;
-    transition: box-shadow 0.3s ease;
-  }
-  .subject-card:hover {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  }
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fff;
+  overflow: hidden;
+  text-align: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.subject-card:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px); /* Naik saat hover */
+}
+
+.subject-card:active {
+  transform: translateY(-2px); /* Efek klik */
+}
 
   /* Gambar dalam Card */
   .subject-card img {
