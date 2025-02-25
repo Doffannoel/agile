@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ subject.title }}{% endblock %}
+
+{% block content %}
+<style>
+  h1 {
+    text-align: center;   
+    font-weight: bold;    
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    color :#1c3d66;
+  }
+
+  .table.table-bordered {
+    border: 2px solid #1c3d66; 
+    border-collapse: collapse; 
+  }
+
+  .table.table-bordered thead tr {
+    background-color: #1c3d66;
+    color: #ffffff;          
+  }
+  .table.table-bordered thead th {
+    text-align: left; 
+    font-weight: 600;
+    border: 1px solid #1c3d66; 
+    padding: 8px;
+  }
+
+  .table.table-bordered tbody td {
+    border: 1px solid #1c3d66; 
+    background-color: #f9f9f9; 
+    vertical-align: top;
+    padding: 8px;
+  }
+
+  h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color :#1c3d66;
+  }
+
+  .custom-download-btn {
+  background-color: #1c3d66; 
+  color: #ffffff;            
+  border: 2px solid #1c3d66; 
+  padding: 10px 20px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.custom-download-btn:hover {
+  background-color: #16304a;
+  border-color: #16304a;
+}
+
+</style>
+
+<div class="container my-5">
+
+    <h1>{{ subject.title }}</h1>
+
+    <h2>Course Description</h2>
+    <p>{{ subject.course_description }}</p>
+
+    <h2 class="mt-4">Course Learning Outcomes &amp; Lesson Learning Outcomes</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Supported CPL Code</th>
+                <th>CPMK Code</th>
+                <th>CPMK Statement</th>
+                <th>Sub-CPMK Statement</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for outcome in subject.learning_outcomes.all %}
+            <tr>
+                <td>{{ outcome.cpl_code }}</td>
+                <td>{{ outcome.cpmk_code }}</td>
+                <td>{{ outcome.cpmk_statement }}</td>
+                <td>{{ outcome.sub_cpmk_statement }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Course Delivery</h2>
+    <p><strong>1. Forms of Learning:</strong> {{ subject.forms_of_learning }}</p>
+    <p><strong>2. Learning Methods:</strong> {{ subject.learning_methods }}</p>
+
+    {% if subject.rps_file %}
+    <div class="text-center">
+      <a href="{{ subject.rps_file.url }}" download class="btn mt-3 custom-download-btn">
+        <i class="fas fa-download"></i> Download RPS
+      </a>
+    </div>
+  {% endif %}  
+
+</div>
+{% endblock %}

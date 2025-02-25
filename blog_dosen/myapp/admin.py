@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import Publikasi, PKM, Research, ResearchGallery , Registration
+from .models import Publikasi, PKM, Research, ResearchGallery , Registration, Subject,  LearningOutcome
+
 
 # Registering the Publikasi model
 admin.site.register(Publikasi)
@@ -53,3 +54,18 @@ class ResearchAdmin(admin.ModelAdmin):
 admin.site.register(Research, ResearchAdmin)
 admin.site.register(ResearchGallery)
 admin.site.register(Registration)
+
+class LearningOutcomeInline(admin.TabularInline):
+    model = LearningOutcome
+    extra = 1  
+
+@admin.register(Subject)
+class SubjectAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+    fields = (
+        'title', 'description', 'course_description', 
+        'course_delivery', 'forms_of_learning', 'learning_methods',
+        'rps_file', 'slug', 'image',
+    )
+    prepopulated_fields = {"slug": ("title",)}
+    inlines = [LearningOutcomeInline]

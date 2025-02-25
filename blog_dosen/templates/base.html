@@ -55,6 +55,11 @@
             padding-bottom: 6px;
         }
 
+        .nav-links a.active {
+            font-weight: 700; /* Bold */
+        }
+
+
         .nav-links a.active::after,
         .nav-links a:hover::after {
             content: '';
@@ -124,15 +129,15 @@
      <!-- Navbar -->
      <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">Sesaria Kiki Tamara</div>
+            <div class="logo">Sesaria Kikitamara</div>
             <div class="nav-links">
-                <a href="{% url "landing_page" %}" class="active">Blog</a>
-                <a href="{% url "pkm_list" %}">Community Service</a>
-                <a href="{% url "research_list" %}">Research</a>
-                <a href="{% url "teaching" %}">Teaching</a>
-                <a href="{% url 'job_list' %}">Open Recruitment</a>
-                <a href="{% url 'publikasi' %}">Publication</a>
-            </div>
+                <a href="/" id="blog">Blog</a>
+                <a href="/pkm/" id="community">Community Service</a>
+                <a href="/research/" id="research">Research</a>
+                <a href="/teaching/" id="teaching">Teaching</a>
+                <a href="/jobs/" id="recruitment">Open Recruitment</a>
+                <a href="/publikasi/" id="publication">Publication</a>
+            </div>            
         </div>
     </nav>
 
@@ -290,4 +295,23 @@
 
 
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const navLinks = document.querySelectorAll(".nav-links a");
+        const currentPath = window.location.pathname; // Dapatkan path dari URL, misal "/teaching/"
+
+        navLinks.forEach(link => {
+            // Cek apakah href dari link cocok dengan path saat ini
+            if (link.getAttribute("href") === currentPath || (currentPath === "/" && link.getAttribute("href") === "/")) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    });
+</script>
+
+
+
 </html>

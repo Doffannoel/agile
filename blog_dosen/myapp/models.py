@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 # Create your models here.
 class Publikasi(models.Model):
@@ -72,3 +73,36 @@ class Registration(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+
+# models.py
+from django.db import models
+from django.utils.text import slugify
+
+class Subject(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    course_description = models.TextField(blank=True, null=True)
+    course_delivery = models.TextField(blank=True, null=True)
+    forms_of_learning = models.TextField(blank=True, null=True)
+    learning_methods = models.TextField(blank=True, null=True)
+    rps_file = models.FileField(upload_to='rps_files/', blank=True, null=True)
+    slug = models.SlugField(unique=True, blank=True)
+    image = models.ImageField(upload_to='subject_images/', blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+class LearningOutcome(models.Model):
+    subject = models.ForeignKey(
+        Subject,
+        on_delete=models.CASCADE,
+        related_name='learning_outcomes'
+    )
+    cpl_code = models.CharField(max_length=100, blank=True, null=True)
+    cpmk_code = models.CharField(max_length=100, blank=True, null=True)
+    cpmk_statement = models.TextField(blank=True, null=True)
+    sub_cpmk_statement = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.cpmk_code} - {self.subject.title}"
+
