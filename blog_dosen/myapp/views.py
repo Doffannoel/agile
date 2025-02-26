@@ -33,15 +33,9 @@ def research_detail(request, pk):
         'research': research_item,
         'gallery_images': gallery_images,
     })
-# def landing_page(request):
-#     # Mengambil 3 aktivitas terbaru, baik yang berkaitan dengan PKM atau Research
-#     recent_activities = Activity.objects.all().order_by('-date')[:3]  # Latest 3 activities
-#     return render(request, 'myapp/landingpage.html', {'recent_activities': recent_activities})
-
 def landing_page(request):
     recent_activities = Activity.objects.all().order_by('-date')[:3]  # Latest 3 activities
     return render(request, 'myapp/landingpage.html', {'recent_activities': recent_activities})
-
 
 def pkm_list(request):
     pkm_list = PKM.objects.all()
