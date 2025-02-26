@@ -107,7 +107,7 @@
 </div>
 
 <button class="hide-details-btn" style="display: none;">Hide Details</button>
-        </div>
+
     </div>
     </div>
     
@@ -208,18 +208,14 @@
     </form>
         </div>
 </div>
-
 <button class="hide-details-btn" style="display: none;">Hide Details</button>
-        </div>
-    </div>
-    </div>
-    
     {% if success %}
     <script>
         alert("Data berhasil dikirim!");
         window.location.href = "{% url 'jobs' %}";  
     </script>
     {% endif %}
+<button class="hide-details-btn" style="display: none;">Hide Details</button>
     <script src="{% static 'javascript/job_list.js' %}"></script>
 </body>
 </html>
