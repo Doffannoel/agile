@@ -4,6 +4,16 @@ body {
     margin: 0;
     padding: 0;
 }
+/* CSS untuk membuat judul tetap di atas namun tetap di tengah */
+.centered-heading {
+    font-size: 32px; /* Memperbesar ukuran font */
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    margin-top: 5px; /* Atur jarak dari atas */
+    position: relative; /* Biarkan tetap dalam alur dokumen normal */
+    color: #333; /* Warna teks */
+}
 
 .job-card {
     background-color: white;
@@ -94,23 +104,25 @@ body {
     border-radius: 5px;
 }
 
-.view-details-btn , .hide-details-btn {
-    background-color: #0066cc;
-    color: white;
-    font-size: 14px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.view-details-btn, .hide-details-btn {
+    display: inline-block;
+    padding: 10px 10px;
+    color: #0a2a66; /* Text color */
+    background-color: transparent;
+    font-size: 14px; /* Adjusted font size */
+    font-weight: normal; /* Normal weight */
+    border: none; /* No border */
+    border-bottom: 2px solid #0a2a66; /* Bottom border only */
+    text-decoration: none;
     text-align: center;
+    cursor: pointer;
     margin-top: 10px;
-    width: fit-content;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
 
-.view-details-btn:hover,  .hide-details-btn:hover{
-    background-color: #004d99;
+.view-details-btn:hover, .hide-details-btn:hover {
+    color: rgb(0, 0, 0); /* Text color on hover */
 }
-
 
 /* Extra Details Section */
 .job-card .extra-details {
@@ -187,13 +199,29 @@ body {
     color: black; /* Text color when typing */
     caret-color: black; /* Cursor color */
 }
+/* Back to Homepage Button */
+.back-home-btn {
+    display: inline-block;
+    padding: 14px 25px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+.back-home-btn:hover {
+    background-color: white;
+    color: #0a2a66;
+}
 
 /* Button Styling */
 .job-card .registration-form button {
-    background-color: #0066cc;
+    display: inline-block;
+    padding: 14px 20px;
     color: white;
-    padding: 10px 15px;
-    border: none;
+    border: 2px solid white;
     border-radius: 5px;
     cursor: pointer;
     grid-column: span 2;

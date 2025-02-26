@@ -93,11 +93,11 @@ def job_list(request):
         form = RegistrationForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()  # Menyimpan data ke database
-            messages.success(request, "Data berhasil dikirim!") 
+            messages.success(request, "data has been saved!") 
             success = True  
             return redirect('success') 
         else : 
-            messages.error(request, f'Form tidak valid: {form.errors}.')
+            messages.error(request, f'Form Invalid: {form.errors}.')
     else:
         form = RegistrationForm()
     return render(request, 'myapp/job_list.html', {'form': form})
