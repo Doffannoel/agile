@@ -13,6 +13,7 @@ urlpatterns = [
     path('teachingdetails/<slug:subject_slug>/', views.teaching_detail, name='teaching_detail'),
     path('jobs/', views.job_list, name='job_list'),
     path('success/', views.registration_success, name='success'),
+    
     # path('riset/', views.research_, name='research'),
 ]
 

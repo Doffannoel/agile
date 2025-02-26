@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render , redirect
-from .models import PKM, Publikasi, Research, ResearchGallery, Registration , Job, Subject
+from .models import PKM, Activity, Publikasi, Research, ResearchGallery, Registration , Job, Subject
 import json
 from .forms import RegistrationForm
 from django.contrib import messages
@@ -34,7 +34,8 @@ def research_detail(request, pk):
         'gallery_images': gallery_images,
     })
 def landing_page(request):
-    return render(request, 'myapp/landingpage.html')
+    recent_activities = Activity.objects.all().order_by('-date')[:3]  # Latest 3 activities
+    return render(request, 'myapp/landingpage.html', {'recent_activities': recent_activities})
 
 def pkm_list(request):
     pkm_list = PKM.objects.all()

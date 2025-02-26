@@ -106,3 +106,18 @@ class LearningOutcome(models.Model):
     def __str__(self):
         return f"{self.cpmk_code} - {self.subject.title}"
 
+class Activity(models.Model):
+    ACTIVITY_TYPES = (
+        ('community_service', 'Community Service'),
+        ('research', 'Research'),
+    )
+    
+    activity_type = models.CharField(choices=ACTIVITY_TYPES, max_length=20)
+    activity = models.ForeignKey('PKM', on_delete=models.CASCADE, null=True, blank=True)  # Optional for Community Service
+    research = models.ForeignKey('Research', on_delete=models.CASCADE, null=True, blank=True)  # Optional for Research
+    date = models.DateField()
+    description = models.TextField()
+    image = models.ImageField(upload_to='activities/', null=True, blank=True)
+
+    def __str__(self):
+        return self.activity_type
