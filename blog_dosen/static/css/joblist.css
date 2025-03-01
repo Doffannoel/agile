@@ -104,24 +104,36 @@ body {
     border-radius: 5px;
 }
 
-.view-details-btn, .hide-details-btn {
+.view-details-btn{
     display: inline-block;
-    padding: 10px 10px;
-    color: #0a2a66; /* Text color */
-    background-color: transparent;
-    font-size: 14px; /* Adjusted font size */
-    font-weight: normal; /* Normal weight */
+    color: #1A3D7A; /* Dark blue text color */
+    font-size: 14px; /* Adjust font size */
+    font-family: Arial, sans-serif; /* Use a standard font */
+    text-decoration: underline; /* Underlined text */
+    background: none; /* No background */
     border: none; /* No border */
-    border-bottom: 2px solid #0a2a66; /* Bottom border only */
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    cursor: pointer; /* Pointer cursor */
+    padding: 0; /* Remove padding */
+    display: block; /* Make it a block element */
+    text-align: left; /* Align text to the left */
 }
 
 .view-details-btn:hover, .hide-details-btn:hover {
     color: rgb(0, 0, 0); /* Text color on hover */
+}
+
+.hide-details-btn {
+    display: inline-block;
+    color: #1A3D7A; /* Dark blue text color */
+    font-size: 14px; /* Adjust font size */
+    font-family: Arial, sans-serif; /* Use a standard font */
+    text-decoration: underline; /* Underlined text */
+    background: none; /* No background */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor */
+    padding: 0; /* Remove padding */
+    display: block; /* Make it a block element */
+    text-align: left; /* Align text to the left */
 }
 
 /* Extra Details Section */
