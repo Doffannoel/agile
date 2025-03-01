@@ -96,20 +96,23 @@ def research_list(request):
     return render(request, 'myapp/research_list.html', {'researches': researches})
 
 def job_list(request):
-    jobs = Job.objects.all()
+    # Mengambil semua data pekerjaan yang ada di database
+    jobs = Job.objects.all().order_by('-posted_date')  # Urutkan berdasarkan tanggal posting
     
     if request.method == 'POST':
         form = RegistrationForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()  # Menyimpan data ke database
-            messages.success(request, "data has been saved!") 
-            success = True  
-            return redirect('success') 
-        else : 
+            form.save()  # Menyimpan data pendaftaran ke database
+            messages.success(request, "Data has been saved!") 
+            return redirect('success')  # Redirect ke halaman sukses setelah form disubmit
+        else: 
             messages.error(request, f'Form Invalid: {form.errors}.')
     else:
         form = RegistrationForm()
-    return render(request, 'myapp/job_list.html', {'form': form})
+
+    # Kirimkan data jobs dan form ke template
+    return render(request, 'myapp/job_list.html', {'jobs': jobs, 'form': form})
+
 
 def registration_success(request):
     return render(request, 'myapp/success.html',{})

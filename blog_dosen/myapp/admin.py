@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import Publikasi, PKM, Research, ResearchGallery , Registration, Subject,  LearningOutcome
+from .models import Publikasi, PKM, Research, ResearchGallery , Registration, Subject,  LearningOutcome, Job
 
 
 # Registering the Publikasi model
@@ -69,3 +69,11 @@ class SubjectAdmin(admin.ModelAdmin):
     )
     prepopulated_fields = {"slug": ("title",)}
     inlines = [LearningOutcomeInline]
+
+# Oprec Job Admin
+class JobAdmin(admin.ModelAdmin):
+    list_display = ('title', 'company', 'location', 'posted_date')  # Menampilkan data di admin
+    search_fields = ('title', 'company', 'location')  # Membolehkan pencarian berdasarkan field ini
+    list_filter = ('posted_date',)  # Memungkinkan filter berdasarkan tanggal
+
+admin.site.register(Job, JobAdmin)
