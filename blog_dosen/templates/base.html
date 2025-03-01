@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
+            background: linear-gradient(to bottom right, #f8fafc, #e0e7ff); /* Gradien latar belakang */
         }
         /* Navbar */
         .navbar {
@@ -58,7 +58,6 @@
         .nav-links a.active {
             font-weight: 700; /* Bold */
         }
-
 
         .nav-links a.active::after,
         .nav-links a:hover::after {
@@ -122,12 +121,92 @@
                 gap: 15px;
             }
         }
+
+        /* Main Content */
+        main {
+            background-color: white; /* Warna latar belakang konten */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Bayangan */
+            border-radius: 8px; /* Sudut melengkung */
+            padding: 20px; /* Ruang di dalam konten */
+            margin: 20px auto; /* Margin untuk memisahkan dari tepi */
+            max-width: 1200px; /* Lebar maksimum konten */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1A3B7D; /* Ganti warna sesuai referensi */
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 16px;
+        }
+
+        .footer-line {
+            border-top: 1px solid white;
+            max-width: 85%;
+            margin: 10px auto;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between; /* Pastikan elemen tersebar dengan baik */
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .footer-logo {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer-logo-img {
+            max-height: 150px !important; /* Tambahkan !important untuk memastikan perubahan */
+            width: auto;
+        }
+
+        .footer-contact {
+            flex: 2;
+            text-align: left; /* Tetap rata kiri */
+            color: white;
+            line-height: 1.8;
+            margin-left: 200px; /* Geser teks sedikit ke kanan */
+        }
+
+        .footer-social {
+            margin-top: 20px;
+        }
+
+        .footer-social .social-icons a {
+            color: white;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-copyright {
+            margin-top: 10px;
+        }
     </style>
 </head>
-<body class="bg-gray-50">
+<body>
 
-     <!-- Navbar -->
-     <nav class="navbar">
+    <!-- Navbar -->
+    <nav class="navbar">
         <div class="nav-container">
             <div class="logo">Sesaria Kikitamara</div>
             <div class="nav-links">
@@ -140,7 +219,6 @@
             </div>            
         </div>
     </nav>
-
 
     <!-- Page Content -->
     <main class="container mx-auto px-6 py-8">
@@ -196,122 +274,22 @@
         <div class="footer-copyright">
             © 2025 Prasetiya Mulya University. All rights reserved.
         </div>
-    
-        <!-- Area Putih untuk Sosial Media -->
-    
-    
-    <style>
-        .footer {
-            background-color: #1A3B7D; /* Ganti warna sesuai referensi */
-            color: white;
-            text-align: center;
-            padding: 40px 0;
-            font-size: 16px;
-        }
-    
-        .footer-line {
-            border-top: 1px solid white;
-            max-width: 85%;
-            margin: 10px auto;
-        }
-    
-        .footer-container {
-        display: flex;
-        justify-content: space-between; /* Pastikan elemen tersebar dengan baik */
-        align-items: center;
-        max-width: 1200px;
-        margin: auto;
-        flex-wrap: wrap;
-        padding: 20px;
-    }
-    
-        .footer-logo {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-    
-        .footer-logo-img {
-            max-height: 150px !important; /* Tambahkan !important untuk memastikan perubahan */
-            width: auto;
+    </footer>
 
-        }
-    
-        .footer-contact {
-            color: white !important; /* Pastikan teks berubah menjadi putih */
-        }
-        
-        .footer-contact p {
-            color: white !important; /* Jika teks masih tidak berubah, tambahkan ini */
-        }
-        
-        .footer-contact {
-            flex: 2;
-            text-align: left; /* Tetap rata kiri */
-            color: white;
-            line-height: 1.8;
-            margin-left: 200px; /* Geser teks sedikit ke kanan */
-        }
-    
-        .footer-social {
-            margin-top: 20px;
-        }
-    
-        .footer-social .social-icons a {
-            color: white;
-            font-size: 20px;
-            margin-right: 10px;
-        }
-    
-        .footer-nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 15px;
-        }
-    
-        .footer-nav a {
-            color: white;
-            text-decoration: none;
-        }
-    
-        .footer-copyright {
-            margin-top: 10px;
-        }
-    
-        .footer-social-bottom {
-            background-color: #F1F1F1;
-            color: #333;
-            padding: 10px;
-            font-size: 14px;
-        }
-    
-        .footer-social-bottom a {
-            color: #333;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navLinks = document.querySelectorAll(".nav-links a");
+            const currentPath = window.location.pathname; // Dapatkan path dari URL, misal "/teaching/"
 
-
-</body>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const navLinks = document.querySelectorAll(".nav-links a");
-        const currentPath = window.location.pathname; // Dapatkan path dari URL, misal "/teaching/"
-
-        navLinks.forEach(link => {
-            // Cek apakah href dari link cocok dengan path saat ini
-            if (link.getAttribute("href") === currentPath || (currentPath === "/" && link.getAttribute("href") === "/")) {
-                link.classList.add("active");
-            } else {
-                link.classList.remove("active");
-            }
+            navLinks.forEach(link => {
+                // Cek apakah href dari link cocok dengan path saat ini
+                if (link.getAttribute("href") === currentPath || (currentPath === "/" && link.getAttribute("href") === "/")) {
+                    link.classList.add("active");
+                } else {
+                    link.classList.remove("active");
+                }
+            });
         });
-    });
-</script>
-
-
-
+    </script>
+</body>
 </html>

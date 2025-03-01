@@ -178,50 +178,46 @@
         </div> -->
 
     <!-- Konten PKM -->
-    <div class="container">
-        <div class="content text-center">
-            <p class="text-gray-600 text-sm font-semibold">Feb 2021 - Now</p>
-            <h1 class="text-5xl font-bold max-w-7xl mt-9 leading-tight">
-                Erasmus+ CBHE - Interdisciplinary Approach Towards Fostering Collaborative Innovation in Food Waste Management (IN2FOOD)
-            </h1>
-            <p class="text-gray-700 mt-2 max-w-3xl mx-auto">
-                IN2FOOD aims to foster sustainable food waste management by integrating expertise from various disciplines,
-                encouraging innovation, and strengthening collaboration between academia and industry.
-            </p>
-            <img src="{% static 'images/foto1.png' %}" alt="IN2FOOD Group" class="main-image">
-        </div>
+<div class="container">
+    <div class="content text-center">
+        <p class="text-gray-600 text-sm font-semibold">{{ pkm.tanggal }}</p>
+        <h1 class="text-5xl font-bold max-w-7xl mt-9 leading-tight">
+            {{ pkm.judul }}
+        </h1>
+                <p class="text-gray-700 mt-2 max-w-3xl mx-auto">
+            {{ pkm.tujuan }}  <!-- Dynamic objectives -->
+        </p>
+        {% comment %} <p class="text-gray-700 mt-2 max-w-3xl mx-auto">
+            {{ pkm.deskripsi }}
+        </p> {% endcomment %}
+        <img src="{{ pkm.gambar.url }}" alt="PKM Image" class="main-image">
+    </div>
+</div>
+
 
         <!-- Konten Tambahan -->
-        <div class="text-section">
-            <h2 class="text-[60px] font-semibold">Advancing Higher Education for Sustainable Food Waste Management</h2>
-            <p class="text-lg text-gray-600">
-                The Erasmus+ Capacity Building in Higher Education (CBHE) project, titled “Interdisciplinary Approach Towards Fostering 
-                Collaborative Innovation in Food Waste Management” (IN2FOOD), is a collaborative initiative aimed at addressing the pressing 
-                issue of food waste through interdisciplinary education and research. This project brings together a consortium of eight 
-                universities, including three from Europe and five from Indonesia, working collectively to enhance the capabilities of 
-                Indonesian higher education institutions in managing food waste. 
-            </p>
-        </div>
+<div class="text-section">
+    <h2 class="text-[60px] font-semibold">Advancing Higher Education from Research</h2>
+    <p class="text-lg text-gray-600">
+        {{ pkm.deskripsi }}  <!-- Dynamic description from the PKM model -->
+    </p>
+</div>
 
-        <div class="text-section">
-            <h2 class="text-3xl font-semibold">Objectives of IN2FOOD</h2>
-            <ul className="text-lg text-gray-600">
-                <li>Curriculum Development: The project focuses on creating and implementing interdisciplinary courses and a master’s program curriculum specifically tailored to food waste management. This educational framework is designed to equip students with the necessary knowledge and skills to tackle food waste challenges effectively.</li>
-                <li>Research Center Establishment: The project focuses on creating and implementing interdisciplinary courses and a master’s program curriculum specifically tailored to food waste management. This educational framework is designed to equip students with the necessary knowledge and skills to tackle food waste challenges effectively.</li>
-                <li>Co-Curricular Activities: The project includes organizing interdisciplinary summer schools and student competitions to foster collaborative innovation among students from diverse academic backgrounds. For instance, the “Food Waste To Finish” (FWTF) summer school held in Bali in 2022 provided participants with hands-on experience in addressing food waste issues.</li>
-            </ul>
-        </div>
+<div class="text-section">
+    <h2 class="text-3xl font-semibold">Objectives of This Project</h2>
+    <ul class="text-lg text-gray-600">
+        {% for objective in pkm.objectives.splitlines %}
+        <li>{{ objective }}</li>
+        {% endfor %}
+    </ul>
+</div>
 
-        <div class="text-section">
-            <h2 class="text-3xl font-semibold">Significance of the Project</h2>
-            <p class="text-lg text-gray-600">
-                Indonesia is recognized as one of the largest contributors to food waste globally. 
-                By enhancing the capacity of its higher education institutions through interdisciplinary approaches, 
-                IN2FOOD seeks to develop sustainable solutions to this critical issue. The project’s emphasis on collaborative 
-                innovation ensures that various perspectives are integrated, leading to more comprehensive and effective strategies
-                 in food waste management.
-            </p>
-        </div>
+<div class="text-section">
+    <h2 class="text-3xl font-semibold">Significance of the Project</h2>
+    <p class="text-lg text-gray-600">
+        {{ pkm.significance }}
+    </p>
+</div>
 
         <!-- Artikel Terkait -->
         <div class="related-articles">

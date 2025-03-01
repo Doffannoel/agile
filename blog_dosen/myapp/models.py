@@ -12,10 +12,18 @@ class Publikasi(models.Model):
         return self.judul
 
 class PKM(models.Model):
+    STATUS_CHOICES = [
+        ('on_progress', 'On Progress'),
+        ('done', 'Done'),
+    ]
     judul = models.CharField(max_length=255)
+    tujuan = models.TextField(default="") 
     deskripsi = models.TextField()
     gambar = models.ImageField(upload_to='pkm_images/')
-    tanggal = models.DateField()
+    tanggal = models.DateField(default='2021-01-01')
+    objectives = models.TextField(default="")  # New field for Objectives of the Project
+    significance = models.TextField(default="")  # New field for Significance of the Project
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='on_progress')
 
     def __str__(self):
         return self.judul

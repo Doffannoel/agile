@@ -38,12 +38,27 @@ def landing_page(request):
     return render(request, 'myapp/landingpage.html', {'recent_activities': recent_activities})
 
 def pkm_list(request):
+    # Ambil status filter dari request (default 'all' jika tidak ada filter)
+    status_filter = request.GET.get('status', 'all')
+
+    # Ambil semua PKM
     pkm_list = PKM.objects.all()
-    return render(request, 'myapp/pkm_list.html', {'pkm_list': pkm_list})
+
+    # Filter berdasarkan status jika pengguna memilih filter tertentu
+    if status_filter == 'on_progress':
+        pkm_list = pkm_list.filter(status='on_progress')
+    elif status_filter == 'done':
+        pkm_list = pkm_list.filter(status='done')
+
+    return render(request, 'myapp/pkm_list.html', {
+        'pkm_list': pkm_list,
+        'selected_status': status_filter  # Kirim status terpilih ke template
+    })
 
 def pkm_detail(request, pk):
     pkm_item = get_object_or_404(PKM, pk=pk)
     return render(request, 'myapp/pkm_detail.html', {'pkm': pkm_item})
+
 
 def project_gallery(request, id):
     # Get the specific research project by ID

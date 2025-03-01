@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience - Sesaria Kiki Tamara</title>
+    <title>Community Service - Sesaria Kikitamara</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -23,13 +23,23 @@
         }
 
         .content {
-            margin-top: 100px; /* Sesuaikan dengan tinggi navbar */
+            margin-top: 100px;
         }
 
+        /* Filter Dropdown */
         .filter-container {
             display: flex;
+            align-items: center;
             justify-content: flex-end;
             margin-bottom: 20px;
+            padding-right: 20px;
+        }
+
+        .filter-container label {
+            margin-right: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
         }
 
         .filter-container select {
@@ -37,6 +47,7 @@
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            background-color: white;
         }
 
         /* Experience Section */
@@ -79,28 +90,71 @@
             margin: 5px 0;
         }
 
+        /* Status Labels */
         .tag {
             display: inline-block;
-            padding: 4px 8px;
-            font-size: 12px;
+            padding: 6px 12px;
+            font-size: 14px;
             font-weight: bold;
-            border-radius: 6px;
+            border-radius: 5px;
             margin-top: 6px;
         }
 
-        .tag-purple {
-            background-color: #EDE9FE;
-            color: #6D28D9;
+        /* Warna Merah untuk "On Progress" */
+        .tag-on-progress {
+            background-color: rgb(255, 204, 204);
+            color: rgb(255, 0, 0);
         }
 
-        .tag-blue {
-            background-color: #DBEAFE;
+        /* Warna Biru untuk "Done" */
+        .tag-done {
+            background-color: rgb(211, 226, 249);
+            color: rgb(33, 58, 245);
+        }
+
+        /* Pesan No Projects Found */
+        .no-projects {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin-left: 150px;
+            margin-right: 150px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .no-projects i {
+            font-size: 60px;
             color: #2563EB;
+            margin-bottom: 15px;
         }
 
-        .tag-green {
-            background-color: #D1FAE5;
-            color: #047857;
+        .no-projects p {
+            font-size: 18px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .no-projects small {
+            font-size: 14px;
+            color: #6B7280;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive */
@@ -113,11 +167,13 @@
 </head>
 <body>
 
+    <!-- Filter Dropdown -->
     <div class="filter-container">
-        <select>
-            <option value="all">Filter</option>
-            <option value="software">Date</option>
-            <option value="education">Progress Status</option>
+        <label for="status-filter">Filter by Status:</label>
+        <select id="status-filter" class="filter-dropdown">
+            <option value="all" {% if selected_status == "all" %}selected{% endif %}>All</option>
+            <option value="on_progress" {% if selected_status == "on_progress" %}selected{% endif %}>On Progress</option>
+            <option value="done" {% if selected_status == "done" %}selected{% endif %}>Done</option>
         </select>
     </div>
 
@@ -132,13 +188,28 @@
                         <div class="grid-content">
                             <p class="text-purple-600">{{ pkm.tanggal }}</p>
                             <h2 class="text-xl font-bold">{{ pkm.judul }}</h2>
-                            <span class="tag tag-purple">PKM</span>
+                            <span class="tag {% if pkm.status == 'on_progress' %}tag-on-progress{% else %}tag-done{% endif %}">
+                                {{ pkm.get_status_display }}
+                            </span>
                         </div>
                     </a>
+                </div>
+            {% empty %}
+                <div class="no-projects">
+                    <i class="fas fa-folder-open"></i>
+                    <p>No projects available for this filter.</p>
+                    <small>Try selecting another status from the dropdown above.</small>
                 </div>
             {% endfor %}
         </div>
     </div>
+
+    <script>
+        document.getElementById('status-filter').addEventListener('change', function() {
+            var selectedStatus = this.value;
+            window.location.href = '?status=' + selectedStatus;
+        });
+    </script>
 
 {% endblock %}
 </body>
