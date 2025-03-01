@@ -55,6 +55,7 @@
                 </div>
             </div>
 
+            <!-- View Details Button -->
             <button class="view-details-btn">View Details</button>
 
             <!-- Job Responsibilities and Skills -->
@@ -100,11 +101,14 @@
                     <button type="submit">Submit</button>
                 </form>
             </div>
+
+            <!-- Hide Details Button (Initially Hidden) -->
+            <button class="hide-details-btn" style="display: none;">Hide Details</button>
         </div>
         {% endfor %}
     </div>
 
-    <button class="hide-details-btn" style="display: none;">Hide Details</button>
+    <script src="{% static 'javascript/job_list.js' %}"></script>
 
     {% if success %}
     <script>
@@ -112,8 +116,6 @@
         window.location.href = "{% url 'jobs' %}";
     </script>
     {% endif %}
-
-    <script src="{% static 'javascript/job_list.js' %}"></script>
 
 </body>
 </html>
