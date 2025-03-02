@@ -282,10 +282,8 @@ body {
 }
 
 .separator {
-    width: 100%;
-    border: 1px solid #1A3D7A; /* Dark blue separator */
-    margin-top: 10px;
-}
+    display: none;
+}   
 
 /* Show the details and hide button only when the "View Details" button is clicked */
 .job-card .extra-details {
@@ -385,3 +383,4 @@ body {
     background-color: white;
     color: #0a2a66;
 }
+
