@@ -72,8 +72,15 @@ class SubjectAdmin(admin.ModelAdmin):
 
 # Oprec Job Admin
 class JobAdmin(admin.ModelAdmin):
-    list_display = ('title', 'company', 'location', 'posted_date')  # Menampilkan data di admin
-    search_fields = ('title', 'company', 'location')  # Membolehkan pencarian berdasarkan field ini
-    list_filter = ('posted_date',)  # Memungkinkan filter berdasarkan tanggal
+    list_display = ('title', 'company', 'location', 'posted_date', 'image_tag')  # Add image_tag here
+    search_fields = ('title', 'company', 'location')
+    list_filter = ('posted_date',)
+    
+    # Add a method to display the image in the admin
+    def image_tag(self, obj):
+        if obj.image:
+            return mark_safe(f'<img src="{obj.image.url}" width="100" height="100" />')
+        return "No Image"
+    image_tag.short_description = 'Image'
 
 admin.site.register(Job, JobAdmin)
